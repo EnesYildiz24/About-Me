@@ -14,7 +14,7 @@ const WelcomePage: React.FC = () => {
             Willkommen auf meiner Website
           </h1>
           <p className="lead text-light mb-4 animate__animated animate__fadeInUp">
-            Entdecke innovative Projekte und erfahre mehr über meine Arbeit in der Welt der modernen Webtechnologien.
+            Entdecke innovative Projekte und erfahre mehr über meine außergewöhnliche Proj.. ach schau einfach selbst.
           </p>
           <Link to="/projects" className="btn btn-primary btn-lg animate__animated animate__fadeInUp">
             Jetzt Projekte ansehen

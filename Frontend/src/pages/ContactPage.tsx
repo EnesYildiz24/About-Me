@@ -64,14 +64,14 @@ const ContactPage: React.FC = () => {
       <div className="contact-wrapper d-flex align-items-center justify-content-center">
         <div className="contact-content container text-center animate__animated animate__fadeIn">
           <h1 className="display-4 fw-bold mb-4 text-light">Kontakt</h1>
-          <p className="lead mb-5 text-light">Ich freue mich auf deine Nachricht!</p>
+          <p className="lead mb-5 text-light">Ich freue mich auf ihre Nachricht!</p>
           <form onSubmit={handleSubmit} className="text-start">
             <div className="mb-3">
               <input
                 type="text"
                 name="name"
                 className="form-control"
-                placeholder="Dein Name"
+                placeholder="Ihr Name / Firma"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -82,7 +82,7 @@ const ContactPage: React.FC = () => {
                 type="email"
                 name="email"
                 className="form-control"
-                placeholder="Deine E-Mail"
+                placeholder="Ihre E-Mail"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -93,7 +93,7 @@ const ContactPage: React.FC = () => {
                 name="message"
                 className="form-control"
                 rows={5}
-                placeholder="Deine Nachricht"
+                placeholder="Ihre Nachricht"
                 value={formData.message}
                 onChange={handleChange}
                 required

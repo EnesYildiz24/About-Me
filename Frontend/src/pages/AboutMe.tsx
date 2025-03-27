@@ -89,6 +89,7 @@ const AboutMe: React.FC = () => {
                   Neben meiner technischen Expertise lege ich großen Wert auf kreative Problemlösungen und eine lösungsorientierte Arbeitsweise. 
                   Meine Projekte dokumentieren nicht nur meinen technischen Fortschritt, sondern auch mein Engagement, stetig Neues zu lernen.
                 </p>
+                <p className="card-text">Credits an ChatGPT für den Langweiligen Text</p>
               </div>
             </div>
           </section>
