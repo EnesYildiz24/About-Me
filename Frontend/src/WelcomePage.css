@@ -1,0 +1,17 @@
+/* Willkommensseite-Wrapper */
+.welcome-wrapper {
+    background-color: #121212; /* Dunkler Hintergrund */
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Optional: Zusätzliche Styles für den Text */
+  .welcome-wrapper h1 {
+    font-weight: 700;
+  }
+  
+  .welcome-wrapper p {
+    font-size: 1.2rem;
+  }
+  
