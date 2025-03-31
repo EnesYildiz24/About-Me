@@ -2,6 +2,7 @@
   "name": "mein-projekt",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://EnesYildiz24.github.io/About-Me",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.3",
     "emailjs-com": "^3.2.0",
+    "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^6.30.0",
@@ -20,7 +22,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "vite"
+    "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,7 +47,6 @@
   "devDependencies": {
     "@types/node": "^22.13.13",
     "@types/react-dom": "^19.0.4",
-    "@types/react-router-dom": "^5.3.3",
-    "vite": "^6.2.3"
+    "@types/react-router-dom": "^5.3.3"
   }
 }
