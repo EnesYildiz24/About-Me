@@ -1,60 +1,46 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from 'emailjs-com';
 import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../AboutMe.css';
 
 const ContactPage: React.FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
+    message: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Erstelle ein Request-Objekt mit den Formulardaten
-    const requestData = {
-      ...formData,
-      id: Date.now(),
-      username: formData.email.toLowerCase(),
-    };
-
-    try {
-      // Zuerst in der Datenbank speichern
-      const response1 = await fetch('http://localhost:5001/request', {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestData),
-      });
-
-      if (!response1.ok) {
-        alert('Fehler beim Speichern der Anfrage');
-        return;
-      }
-
-      // Anschließend den Mailversand auslösen
-      const response = await fetch('http://localhost:5001/sendmail', {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestData),
-      });
-
-      if (response.ok) {
-        alert('E-Mail wurde versendet');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        alert('Fehler beim Senden der E-Mail');
-      }
-    } catch (error) {
-      console.error("Fehler beim Fetch:", error);
-      alert("Ein Fehler ist aufgetreten. Bitte versuche es erneut.");
+    if (formRef.current) {
+      emailjs
+        .sendForm(
+          'service_w9jmrlf',
+          'template_20jitdj',
+          formRef.current,
+          'iOfBFPuKZ-RwSg5Fe'
+        )
+        .then(
+          (result) => {
+            console.log('Erfolg:', result.text);
+            alert('E-Mail wurde erfolgreich gesendet!');
+            setFormData({ name: '', email: '', message: '' });
+          },
+          (error) => {
+            console.error('Fehler:', error.text);
+            alert('Fehler beim Senden der E-Mail. Bitte versuche es erneut.');
+          }
+        );
     }
   };
 
@@ -64,8 +50,9 @@ const ContactPage: React.FC = () => {
       <div className="contact-wrapper d-flex align-items-center justify-content-center">
         <div className="contact-content container text-center animate__animated animate__fadeIn">
           <h1 className="display-4 fw-bold mb-4 text-light">Kontakt</h1>
-          <p className="lead mb-5 text-light">Ich freue mich auf ihre Nachricht!</p>
-          <form onSubmit={handleSubmit} className="text-start">
+          <p className="lead mb-5 text-light">Ich freue mich auf Ihre Nachricht!</p>
+          
+          <form ref={formRef} onSubmit={handleSubmit} className="text-start">
             <div className="mb-3">
               <input
                 type="text"
@@ -99,6 +86,14 @@ const ContactPage: React.FC = () => {
                 required
               ></textarea>
             </div>
+
+            {/* Nur wenn du 'time' im Template verwenden willst */}
+            <input
+              type="hidden"
+              name="time"
+              value={new Date().toLocaleString()}
+            />
+
             <button type="submit" className="btn btn-success btn-lg w-100">
               Nachricht senden
             </button>

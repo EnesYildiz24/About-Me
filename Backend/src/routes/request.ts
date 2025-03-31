@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { RequestService } from "../service/RequestService";
-
+import { Request, Response } from "express";
 const requestRouter = Router();
 
 // Neue Anfrage speichern
