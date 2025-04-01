@@ -1,4 +1,3 @@
-// App.tsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import WelcomePage from './pages/WelcomePage';
@@ -8,6 +7,8 @@ import ContactPage from './pages/ContactPage';
 import QuizPage from './pages/QuizPage';
 import PasswordPage from './pages/PasswordPage';
 import './AboutMe.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const App: React.FC = () => {
   return (
