@@ -26,7 +26,7 @@ const QuizPage: React.FC = () => {
     const top = Math.floor(Math.random() * 80) + "%";
     setDecoyPosition({ left, top });
   };
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -63,24 +63,23 @@ const navigate = useNavigate();
           >
             <h1 className="display-4 mb-4">GitHub Repo</h1>
             <p>Zum Repo in die Mitte klicken!</p>
-<button
-  onClick={() => navigate("/password")}
-  style={{
-    position: "absolute",
-    left: "50%",
-    top: "50%",
-    transform: "translate(-50%, -50%)",
-    opacity: 0,
-    width: "100px",
-    height: "50px",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-  }}
->
-  Correct
-</button>
-D
+            <button
+              onClick={() => navigate("/password")}
+              style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+                opacity: 0,
+                width: "100px",
+                height: "50px",
+                border: "none",
+                background: "transparent",
+                cursor: "pointer",
+              }}
+            >
+              Correct
+            </button>
             {/* Sichtbarer, falscher Button, der bei jedem Klick umspringt */}
             <button
               className="btn btn-primary"
